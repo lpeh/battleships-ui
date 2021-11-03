@@ -9,6 +9,10 @@ export const [themeClass, vars] = createTheme({
   }
 });
 
+const squareSize = 48
+const squareWidth = `${squareSize}px`
+const squareHeight = squareWidth
+
 export const exampleStyle = style({
   backgroundColor: vars.color.brand,
   fontFamily: vars.font.body,
@@ -20,37 +24,37 @@ export const gameMap = style({
   tableLayout: "fixed",
   borderCollapse: "collapse",
   fontFamily: vars.font.body,
-  width: `${11*32}px`,
-  height: `${11*32}px`
+  width: `${11*squareSize}px`,
+  height: `${11*squareSize}px`
 });
 
 export const gameRow = style({
-  height: "32px"
+  height: squareHeight
 });
 
 export const gameColumnHeader = style({
   background: "cadetblue",
   color: "white",
-  border: "1px solid black",
+  border: "2px solid black",
   overflow: "hidden",
-  width: "32px",
-  height: "32px"
+  width: squareWidth,
+  height: squareHeight
 });
 
 export const gameRowHeader = style({
   background: "cadetblue",
   color: "white",  
-  border: "1px solid black",
+  border: "2px solid black",
   overflow: "hidden",
-  width: "32px",
-  height: "32px"
+  width: squareWidth,
+  height: squareHeight
 });
 
 export const gameSquare = style({
-  border: "1px solid black",
+  border: "2px solid black",
   overflow: "hidden",
-  width: "32px",
-  height: "32px",
+  width: squareWidth,
+  height: squareHeight,
   userSelect: "none",
   textAlign: "center"
 });
@@ -59,15 +63,15 @@ export const emptySquare = style({
   background: "white",
   border: "none",
   overflow: "hidden",
-  width: "32px",
-  height: "32px"
+  width: squareWidth,
+  height: squareHeight
 });
 
 export const gameSquareFilled = style({
-  border: "1px solid black",
+  border: "2px solid black",
   overflow: "hidden",
-  width: "32px",
-  height: "32px",
+  width: squareWidth,
+  height: squareHeight,
   userSelect: "none",
   textAlign: "center",
   background: "darkgray"

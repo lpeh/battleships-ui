@@ -1,4 +1,5 @@
 const path = require('path');
+const ESLintPlugin = require('eslint-webpack-plugin');
 const { VanillaExtractPlugin } = require('@vanilla-extract/webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const devMode = process.env.NODE_ENV !== "production";
@@ -14,7 +15,7 @@ module.exports = {
         extensions: ['.ts', '.tsx', '.js']
     },
     module: {
-        rules: [
+        rules: [          
             {
                 test: /\.tsx?$/,
                 use: 'ts-loader',
@@ -35,6 +36,11 @@ module.exports = {
         ],
     },
     plugins: [
+        new ESLintPlugin({
+            eslintPath: require.resolve('eslint'),
+            extensions: ['.ts', '.tsx'],
+            formatter: 'stylish' 
+        }),
         new VanillaExtractPlugin()
     ].concat(devMode ? [] : [new MiniCssExtractPlugin()]),
     output: {
